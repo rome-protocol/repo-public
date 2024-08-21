@@ -24,14 +24,14 @@ jobs:
 
 
   public-job:
-    if: ${{ github.event.repository.visibility}} == 'public'
+    if: github.event.repository.visibility == 'public'
     runs-on: ubuntu-latest
     steps:
       - name: Run tasks for public repo
         run: echo "This is a public repository."
 
   private-job:
-    if: ${{ github.event.repository.visibility}} == 'private'
+    if: github.event.repository.visibility == 'private'
     runs-on: ubuntu-latest
     steps:
       - name: Run tasks for private repo
