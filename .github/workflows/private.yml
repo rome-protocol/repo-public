@@ -1,0 +1,36 @@
+name: Conditional Action Based on Repo Visibility
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-visibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if the repository is public
+        id: check_visibility
+        run: |
+          if [[ "${{ github.event.repository.private }}" == "false" ]]; then
+            echo "is_public=true" 
+          else
+            echo "is_public=false" 
+          fi
+          echo "Repo is private ${{ github.event.repository.private }} "
+          echo "Repo is public ${{ github.event.repository.public }} "
+          echo "Repo Visibility ${{ github.event.repository.visibility }} "
+
+  public-job:
+    if: ${{ github.event.repository.public}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tasks for public repo
+        run: echo "This is a public repository."
+
+  private-job:
+    if: ${{ github.event.repository.private }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tasks for private repo
+        run: echo "This is a private repository."
