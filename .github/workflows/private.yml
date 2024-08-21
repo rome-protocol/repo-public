@@ -17,7 +17,7 @@ jobs:
           else
             echo "is_public=false" 
           fi
-          echo "Repo is private ${{ github.event.repository.private }} "
+          echo "Repo is private  ${{ github.event.repository.private }} "
           echo "Repo is public ${{ github.event.repository.public }} "
           echo "Repo Visibility ${{ github.event.repository.visibility }} "
           echo "Repo Name ${{ github.event.repository.name }} "
