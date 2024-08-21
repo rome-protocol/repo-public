@@ -31,7 +31,7 @@ jobs:
         run: echo "This is a public repository."
 
   private-job:
-    if: ${{ github.event.repository.private }} == 'true'
+    if: ${{ github.event.repository.private }}
     runs-on: ubuntu-latest
     steps:
       - name: Run tasks for private repo
