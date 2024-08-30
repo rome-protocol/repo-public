@@ -29,7 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run tasks for public repo
-        run: echo "This is a public repository."
+        run: |
+          echo "This is a public repository."
+          exit 1
 
   private-job:
     if: github.event.repository.visibility == 'private'
