@@ -36,4 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run tasks for private repo
-        run: echo "This is a private repository."
+        run: |
+          echo "This is a private repository."
+          exit 1
