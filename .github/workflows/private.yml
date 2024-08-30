@@ -31,7 +31,6 @@ jobs:
       - name: Run tasks for public repo
         run: |
           echo "This is a public repository."
-          exit 1
 
   private-job:
     if: github.event.repository.visibility == 'private'
@@ -40,4 +39,3 @@ jobs:
       - name: Run tasks for private repo
         run: |
           echo "This is a private repository."
-          exit 1
